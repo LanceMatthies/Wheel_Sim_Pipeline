@@ -16,9 +16,9 @@ echo "Starting simulation sequence"
 wheel_generation
 echo "Uploading $LOCAL_UPLOAD_PATH/wheel.obj and $LOCAL_UPLOAD_PATH/key_pair_psc to $REMOTE_UPLOAD_PATH"
 scp -r -i $LOCAL_UPLOAD_PATH/key_pair_psc "$LOCAL_UPLOAD_PATH/wheel.obj" "$USERNAME@$CLUSTER_HOST:$REMOTE_UPLOAD_PATH/meshes"
-scp -r -i $LOCAL_UPLOAD_PATH/key_pair_psc "$LOCAL_UPLOAD_PATH/input_parameters.json" "$USERNAME@$CLUSTER_HOST:$REMOTE_UPLOAD_PATH/input_json"
+scp -r -i $LOCAL_UPLOAD_PATH/key_pair_psc "$LOCAL_UPLOAD_PATH/input_jsons/input_parameters.json" "$USERNAME@$CLUSTER_HOST:$REMOTE_UPLOAD_PATH/input_json"
 echo "running simulation"
-job_id=$(ssh -i $HOME/Documents/wheel_sim_pipeline/key_pair_psc "$USERNAME@bridges2.psc.edu" "sbatch $JOB_SCRIPT $REMOTE_UPLOAD_PATH/input_json" | awk '{print $4}')
+job_id=$(ssh -i $HOME/Documents/wheel_sim_pipeline/key_pair_psc "$USERNAME@bridges2.psc.edu" "sbatch $JOB_SCRIPT $REMOTE_UPLOAD_PATH/input_json/input_parameters.json" | awk '{print $4}')
 echo "job is: $job_id"
 python3 gmail_monitor.py "$job_id"
 echo "sim done"

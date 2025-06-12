@@ -6,13 +6,13 @@ parser = argparse.ArgumentParser(description=__doc__, formatter_class=
                                  argparse.ArgumentDefaultsHelpFormatter)
 # parser.add_argument("--cp_deviation", "-c", type=str, dest="nls", default="variational",
 #                     choices=["variational", "rmturs"],help="Navier--Stokes non-linear solver, rmturs or FEniCS variational solver")
-parser.add_argument("--density","-d", type=int, dest="g_density", default=2,
+parser.add_argument("--density","-d", type=int, dest="g_density", default=15,
                     help="Number of grousers for one revolution of the wheel")
-parser.add_argument("--wave_num","-n", type=int, dest="g_period", default=3,
+parser.add_argument("--wave_num","-n", type=int, dest="g_period", default=0,
                     help="The wave number for one grouser (number of periods)")
-parser.add_argument("--rad", "-r", type=float, dest="rad", default=0.25,
+parser.add_argument("--rad", "-r", type=float, dest="rad", default=0.085,
                     help="Wheel's radius (excluding grousers)")
-parser.add_argument("--width", "-w", type=float, dest="width", default=0.2,
+parser.add_argument("--width", "-w", type=float, dest="width", default=0.06,
                     help="Wheel's width")
 parser.add_argument("--cp_deviation", "-c", type=float, dest="cp_deviation", default=0.,
                     help="Wheel's outer perimeter control points' vertical deviation distance")

@@ -70,7 +70,7 @@ def main():
             msg_id = msg['id']
             if msg_id not in seen_ids:
                 subject = get_subject(service, msg_id)
-                if "COMPLETED"in subject and job_id in subject:
+                if "Ended"in subject and job_id in subject:
                     seen_ids.add(msg_id)
                     print(f"New COMPLETED job email: {subject}")
                     
